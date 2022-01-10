@@ -1,0 +1,6 @@
+{
+	"appId": "com.dbrutti.todo",
+	"appName": "Todo App",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,65 @@
+<ion-header [translucent]="false" color="primary">
+  <ion-toolbar>
+    <ion-title> About </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">About</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <img src="assets/imgs/ionic-framework.png" />
+    <ion-card-header>
+      <ion-card-subtitle>Daniel Brutti</ion-card-subtitle>
+      <ion-card-title>{{ appName | async }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h2>Simple Todo app that consumes a RESTful API.</h2>
+      <div class="ion-margin-vertical">
+        <ion-icon name="logo-nodejs"></ion-icon>
+        <a
+          class="ion-margin-horizontal"
+          color="secondary"
+          href="https://github.com/danielbrutti/todo-nestjs"
+          target="_blank"
+          >Todo RESTful API</a
+        >
+      </div>
+      <div class="ion-margin-vertical">
+        <ion-icon name="logo-github"></ion-icon>
+        <a
+          class="ion-margin-horizontal"
+          color="secondary"
+          href="https://github.com/danielbrutti"
+          target="_blank"
+          >GitHub Profile</a
+        >
+      </div>
+      <div class="ion-margin-vertical">
+        <ion-icon name="logo-linkedin"></ion-icon>
+        <a
+          class="ion-margin-horizontal"
+          color="secondary"
+          href="https://www.linkedin.com/in/daniel-brutti-bb940911b/"
+          target="_blank"
+          >Personal Profile</a
+        >
+      </div>
+      <div class="ion-margin-vertical">
+        <ion-icon name="mail-outline"></ion-icon>
+        <a
+          class="ion-margin-horizontal"
+          color="secondary"
+          href="mailto:danielbrutti@gmail.com"
+          target="_blank"
+          >@danielbrutti</a
+        >
+      </div>
+      <div class="ion-text-center ion-margin-vertical">v{{ version | async }}</div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header collapse="condense">
+  <!-- Toolbar, hides on scroll down or small screen sizes-->
+  <ion-toolbar>
+    <ion-title size="large">Todos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- List of Todo items -->
+<h4 class="ion-text-center">List Changes Detected: {{ runChangeDetection }}</h4>
+<ion-list>
+  <app-todo-item
+    [todo]="todo"
+    *ngFor="let todo of todos | async"
+  ></app-todo-item>
+</ion-list>
+
+<!-- Todo list infinite scroll pagination, will dispatch load when user scrolls 15% from bottom-->
+<ion-infinite-scroll (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data..."
+  >
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

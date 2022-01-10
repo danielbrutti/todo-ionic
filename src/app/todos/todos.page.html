@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <!-- Toolbar, shows on scroll down or small screen sizes-->
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="add()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Todos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-todo-list [todos]="todos"></app-todo-list>
+</ion-content>
