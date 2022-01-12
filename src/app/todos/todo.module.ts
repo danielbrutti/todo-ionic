@@ -13,8 +13,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     IonicModule,
     CommonModule,
     FormsModule,
-    TodoPageRoutingModule
+    TodoPageRoutingModule,
   ],
-  declarations: [TodosPage, TodoListComponent, TodoItemComponent]
+  declarations: [TodosPage, TodoListComponent, TodoItemComponent],
 })
-export class TodoPageModule {}
+export class TodoPageModule { }

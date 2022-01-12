@@ -13,20 +13,15 @@ export class TodosPage implements OnInit {
 
   constructor(private todoService: TodoService) { }
 
-  get todos(): Observable<Todo[]> {
-    return this.todoService.todos$;
-  }
-
-  get runChangeDetection(): boolean {
-    console.log(`Content Change Detected`);
-    return true;
-  }
-
   ngOnInit() {
   }
 
   add(): void {
     this.todoService.add();
+  }
+
+  refresh(): void {
+    this.todoService.loadPage();
   }
 
 }

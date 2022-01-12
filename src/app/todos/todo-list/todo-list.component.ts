@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Todo } from '../../shared/model/todo.model';
@@ -14,35 +14,33 @@ export class TodoListComponent implements OnInit {
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
-  @Input() todos: Observable<Todo[]>;
+  todos: Observable<Todo[]>;
   changes = 0;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService) {
+    this.todos = this.todoService.todos$;
+  }
 
   get runChangeDetection(): number {
-    console.log(`Todo List Change Detected`);
     return ++this.changes;
   }
 
   ngOnInit(): void {
     this.subscribeTodoListLoaded();
-    console.log(`Loading initial 10 elements...`);
-    this.todoService.load(2);
+    this.todoService.loadPage();
   }
 
-  loadData() {
-    console.log(`Loading 10 more elements...`);
-    this.todoService.load(10);
+  loadData(event: any) {
+    this.todoService.loadPage();
   }
 
   private subscribeTodoListLoaded() {
     this.todoService.todos$.subscribe(async () => {
-      console.log(`Data loaded... Total: ${this.todoService.count}`);
       if (this.infiniteScroll) {
         await this.infiniteScroll.complete();
         // if all data is loaded
         // disable the infinite scroll
-        if (this.todoService.count >= this.todoService.limit) {
+        if (!this.todoService.hasMore()) {
           this.infiniteScroll.disabled = true;
         }
       }
